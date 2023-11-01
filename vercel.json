@@ -1,12 +1,14 @@
 {
-  "version": 2,
-  "builds": [{ "src": "manage.py", "use": "@now/static-build" }],
+  "builds": [
+    {
+      "src": "procePDF/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
-      "src": "/static/(?<file>.*)",
-      "dest": "/static/\1"
-    },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "manage.py" }
+      "src": "/(.*)",
+      "dest": "procePDF/wsgi.py"
+    }
   ]
 }
